@@ -45,7 +45,7 @@ public class FigureController : MonoBehaviour
         if (Mathf.Abs(_mDeltaX) < dragThreshold && Mathf.Abs(_mDeltaY) < dragThreshold)
             return;
 
-        if (Input.GetKey(KeyCode.LeftControl))
+        if (Input.GetKey(KeyCode.LeftAlt))
             transform.RotateAround(transform.position, _camTf.up, -_mDeltaX);
         else
             transform.RotateAround(transform.position, _camTf.right, _mDeltaY);
