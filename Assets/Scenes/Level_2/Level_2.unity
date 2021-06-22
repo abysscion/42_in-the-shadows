@@ -818,7 +818,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   figureTransform: {fileID: 543450653523250478}
   conditions:
-  - {fileID: 0}
+  - {fileID: 302810161}
 --- !u!4 &1725814637
 Transform:
   m_ObjectHideFlags: 0
