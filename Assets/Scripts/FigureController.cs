@@ -1,9 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FigureController : MonoBehaviour
 {
+    public System.Action OnMoveEnd;
+
     public float mouseSpeedMultiplier = 3;
     public float dragThreshold = 0.1f;
 
@@ -11,6 +11,7 @@ public class FigureController : MonoBehaviour
     private float _mDeltaX;
     private float _mDeltaY;
     private bool _isMousePressed;
+    private bool _isRotating;
 
     private void Start()
     {
@@ -24,6 +25,9 @@ public class FigureController : MonoBehaviour
 
     private void OnMouseUp()
     {
+        if (_isRotating)
+            OnMoveEnd?.Invoke();
+        _isRotating = false;
         _isMousePressed = false;
     }
 
@@ -45,6 +49,7 @@ public class FigureController : MonoBehaviour
         if (Mathf.Abs(_mDeltaX) < dragThreshold && Mathf.Abs(_mDeltaY) < dragThreshold)
             return;
 
+        _isRotating = true;
         if (Input.GetKey(KeyCode.LeftAlt))
             transform.RotateAround(transform.position, _camTf.up, -_mDeltaX);
         else
