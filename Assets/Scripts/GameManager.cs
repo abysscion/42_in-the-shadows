@@ -1,11 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+
+    private int _currentLevelIndex = 1;
 
     public void ExitGame()
     {
@@ -15,6 +15,16 @@ public class GameManager : MonoBehaviour
     public void StartNewGame()
     {
         SceneManager.LoadScene((int)GameScenes.Level_1);
+    }
+
+    public void CompleteLevel()
+    {
+        _currentLevelIndex++;
+        var newSceneIndex = (int)GameScenes.Menu + _currentLevelIndex;
+        if (newSceneIndex < SceneManager.sceneCountInBuildSettings)
+            SceneManager.LoadScene(newSceneIndex);
+        else
+            SceneManager.LoadScene((int)GameScenes.Menu);
     }
 
     private void Awake()

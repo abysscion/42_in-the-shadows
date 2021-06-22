@@ -6,7 +6,7 @@ namespace Utilities
     {
         private void Awake()
         {
-            DontDestroyOnLoad(this);
+            DontDestroyOnLoad(this.gameObject);
         }
     }
 }
