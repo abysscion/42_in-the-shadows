@@ -7,12 +7,26 @@ public class ConditionalRay : MonoBehaviour
     public Transform targetPlane = null;
     public float targetDotProduct = 1f;
     public float dotProductTolerance = 0.1f;
+    [Tooltip("For cases, when figure could be correctly placed either one side or opposite. For example arrow that points towards left or right sight.")]
+    public bool unsignedProduct;
 
     public bool IsConditionMet
     {
         get
         {
-            var result = targetDotProduct - Mathf.Abs(Vector3.Dot(OrientationVec, targetPlane.up));
+            float result;
+
+            if (!unsignedProduct)
+            {
+                result = targetDotProduct - Vector3.Dot(OrientationVec, targetPlane.up);
+                //Debug.Log($"{name} product: {Vector3.Dot(OrientationVec, targetPlane.up)}");
+            }
+            else
+            {
+                result = targetDotProduct - Mathf.Abs(Vector3.Dot(OrientationVec, targetPlane.up));
+                //Debug.Log($"{name} product: {Mathf.Abs(Vector3.Dot(OrientationVec, targetPlane.up))}");
+            }
+            
             return result <= dotProductTolerance;
         }
     }
@@ -35,7 +49,7 @@ public class ConditionalRay : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         if (IsConditionMet)
             Gizmos.color = Color.green;
