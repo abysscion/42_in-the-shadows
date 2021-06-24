@@ -1623,6 +1623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69f084bc6b5a87e48a8526cdf957ff1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mapData: {fileID: 11400000, guid: 4119d1d1125104046944e8a545edfd31, type: 2}
   frameRenderer: {fileID: 1046322612}
   lightSource: {fileID: 1402269117}
   unlockedColor: {r: 0, g: 0, b: 0, a: 0}

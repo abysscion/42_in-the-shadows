@@ -5,7 +5,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    private int _currentLevelIndex = 1;
+    private int _currentLevelID;
 
     public void ExitGame()
     {
@@ -14,17 +14,18 @@ public class GameManager : MonoBehaviour
 
     public void StartNewGame()
     {
-        SceneManager.LoadScene((int)GameScenes.Level_1);
+        SceneManager.LoadScene((int)GameScenes.Map);
+    }
+
+    public void LoadLevel(int index)
+    {
+        _currentLevelID = (int)GameScenes.Menu + index;
+        SceneManager.LoadScene(_currentLevelID);
     }
 
     public void CompleteLevel()
     {
-        _currentLevelIndex++;
-        var newSceneIndex = (int)GameScenes.Menu + _currentLevelIndex;
-        if (newSceneIndex < SceneManager.sceneCountInBuildSettings)
-            SceneManager.LoadScene(newSceneIndex);
-        else
-            SceneManager.LoadScene((int)GameScenes.Menu);
+        SceneManager.LoadScene((int)GameScenes.Map);
     }
 
     private void Awake()
@@ -39,7 +40,5 @@ public class GameManager : MonoBehaviour
         DDOL,
         Map,
         Menu,
-        Level_1,
-        Level_2
     }
 }

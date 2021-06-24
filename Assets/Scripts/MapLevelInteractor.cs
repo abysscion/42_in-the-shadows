@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MapLevelInteractor : MonoBehaviour
 {
+    public LevelData mapData;
     public SpriteRenderer frameRenderer;
     public Light lightSource;
     public Color unlockedColor;
@@ -13,17 +14,15 @@ public class MapLevelInteractor : MonoBehaviour
 
     private Color _currentColor;
     private float _baseLightIntensity;
-    
-    // Start is called before the first frame update
-    void Start()
+
+    private void Start()    
     {
         _baseLightIntensity = lightSource.intensity;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnMouseDown()
     {
-        
+        GameManager.Instance.LoadLevel(mapData.levelID);
     }
 
     private void OnMouseEnter()
