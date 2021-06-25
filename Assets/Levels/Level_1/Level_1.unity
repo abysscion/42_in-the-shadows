@@ -1268,6 +1268,7 @@ MonoBehaviour:
   targetPlane: {fileID: 109970879}
   targetDotProduct: 1
   dotProductTolerance: 0.01
+  unsignedProduct: 0
 --- !u!1 &1289131187
 GameObject:
   m_ObjectHideFlags: 0
@@ -1516,7 +1517,7 @@ GameObject:
   - component: {fileID: 1725814637}
   - component: {fileID: 1725814636}
   m_Layer: 0
-  m_Name: '[LevelCompleteObject]'
+  m_Name: '[LevelSettings]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1978,3 +1979,4 @@ MonoBehaviour:
   targetPlane: {fileID: 2007603454}
   targetDotProduct: 1
   dotProductTolerance: 0.01
+  unsignedProduct: 0

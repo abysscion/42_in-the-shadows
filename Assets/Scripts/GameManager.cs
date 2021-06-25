@@ -1,11 +1,11 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-
-    private int _currentLevelID;
+    public LevelSettings CurrentLevel { get; private set; }
 
     public void ExitGame()
     {
@@ -17,14 +17,21 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene((int)GameScenes.Map);
     }
 
-    public void LoadLevel(int index)
+    public void ContinueGame()
     {
-        _currentLevelID = (int)GameScenes.Menu + index;
-        SceneManager.LoadScene(_currentLevelID);
+        SceneManager.LoadScene((int)GameScenes.Map);
     }
 
-    public void CompleteLevel()
+    public void LoadLevel(LevelSettings level)
     {
+        CurrentLevel = level;
+        SceneManager.LoadScene((int)GameScenes.Menu + level.id);
+    }
+
+    public void CompleteLevel(LevelProgressionData data)
+    {
+        GameSaveManager.CurrentSave.AddOrReplaceLevelProgressionData(data);
+        GameSaveManager.Save();
         SceneManager.LoadScene((int)GameScenes.Map);
     }
 

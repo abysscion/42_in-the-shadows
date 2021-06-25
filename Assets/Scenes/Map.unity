@@ -890,7 +890,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b47dd6da6b34280499f83878c14278ea, type: 3}
-  m_Color: {r: 0.082835674, g: 0, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.39530468, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1623,12 +1623,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69f084bc6b5a87e48a8526cdf957ff1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapData: {fileID: 11400000, guid: 4119d1d1125104046944e8a545edfd31, type: 2}
+  levelSettings: {fileID: 11400000, guid: e26927c7e6aa49f4085baaf6ec036440, type: 2}
   frameRenderer: {fileID: 1046322612}
   lightSource: {fileID: 1402269117}
-  unlockedColor: {r: 0, g: 0, b: 0, a: 0}
-  lockedColor: {r: 0, g: 0, b: 0, a: 0}
-  completeColor: {r: 0, g: 0, b: 0, a: 0}
+  unlockedColor: {r: 0, g: 0.39607844, b: 1, a: 1}
+  lockedColor: {r: 0.8490566, g: 0, b: 0, a: 1}
+  completeColor: {r: 0, g: 0.735849, b: 0.0006854444, a: 1}
   highlightAmount: 10
 --- !u!1 &1979601434
 GameObject:

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelCompleteCondition : MonoBehaviour
+public class LevelCompletioner : MonoBehaviour
 {
     public Transform figureTransform = null;
     public List<ConditionalRay> conditions = new List<ConditionalRay>();
@@ -27,6 +27,8 @@ public class LevelCompleteCondition : MonoBehaviour
                 return;
         }
 
-        GameManager.Instance.CompleteLevel();
+        var gm = GameManager.Instance;
+
+        gm.CompleteLevel(new LevelProgressionData(0.42f, true, gm.CurrentLevel.id));
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MapLevelInteractor : MonoBehaviour
 {
-    public LevelData mapData;
+    public LevelSettings levelSettings;
     public SpriteRenderer frameRenderer;
     public Light lightSource;
     public Color unlockedColor;
@@ -22,7 +22,7 @@ public class MapLevelInteractor : MonoBehaviour
 
     private void OnMouseDown()
     {
-        GameManager.Instance.LoadLevel(mapData.levelID);
+        GameManager.Instance.LoadLevel(levelSettings);
     }
 
     private void OnMouseEnter()
